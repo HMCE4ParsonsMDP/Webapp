@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+    <head>
+        <title>{% block title %}{% endblock %}</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body><nav>
+            <h1>Parsons Parking Lot Status</h1>
+        </nav>
+        <section class="content">
+            <div class="main">
+                Parking lot is currently {% if status == "full" %}
+                <font color="red">full</font>
+                {% elif status == "warning" %}
+                <font color="orange">filling</font>
+                {% elif status == "empty" %}
+                <font color="green">empty</font>
+                {% else %}
+                error
+                {% endif %}
+                .</div>
+        </section>
+    </body>
+</html>
