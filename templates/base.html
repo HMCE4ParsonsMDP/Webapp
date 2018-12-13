@@ -9,16 +9,16 @@
         </nav>
         <section class="content">
             <div class="main">
-                Parking lot is currently {% if status == "full" %}
-                <font color="red">full</font>
-                {% elif status == "warning" %}
-                <font color="orange">filling</font>
-                {% elif status == "empty" %}
-                <font color="green">empty</font>
+                Parking lot currently has {% if status == 0 %}
+                <font color="red">{{ status }}</font>
+                {% elif status <= 5 %}
+                <font color="orange">{{ status }}</font>
+                {% elif status > 5 %}
+                <font color="green">{{ status }}</font>
                 {% else %}
-                error
+                error {{status}}
                 {% endif %}
-                .</div>
+                spots available</div>
         </section>
     </body>
 </html>
